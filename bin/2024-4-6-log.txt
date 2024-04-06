@@ -1,0 +1,8 @@
+6:6:32 =>[info] service name: FriendServiceRPC
+6:6:32 =>[info] method name: GetFriendList
+6:6:32 =>[info] zookeeper_init success!
+6:6:32 =>[info] znode create success... path: /FriendServiceRPC
+6:6:32 =>[info] znode create success... path: /FriendServiceRPC/GetFriendList
+6:6:32 =>[info] server RpcProvider ip port: 127.0.0.1:8000
+6:7:0 =>[info] zookeeper_init success!
+6:6:32 =>[error] disconnection

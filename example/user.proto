@@ -1,0 +1,56 @@
+syntax = "proto3";  //声明了protobuf的版本
+
+package lddxfy; //声明了代码所在包
+
+//定义下面的选项，表示生成service服务类和rpc方法的描述，默认不生成
+option cc_generic_services = true;
+
+
+message ResultCode
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+//定义登录消息类型  name   pwd
+message LoginRequest
+{
+    bytes name = 1;
+    bytes pwd = 2;
+}
+
+//定义登录响应类型
+message LoginResponse
+{
+    ResultCode res = 1;
+    bool success = 2;
+}
+
+message User
+{
+    bytes name = 1;
+    uint32 age = 2;
+    enum Sex{
+        MAN = 0;
+        WOMAN = 1;
+    };
+    Sex sex = 3;
+
+}
+
+message GetUserListRequest
+{
+    uint32 userid = 1;
+}
+
+message GetUserListResponse
+{
+    uint32 userid = 1;
+    repeated User user = 2;
+}
+
+service UserServiceRPC
+{
+    rpc Login (LoginRequest) returns (LoginResponse);
+    rpc GetUserList (GetUserListRequest) returns (GetUserListResponse);
+}
